@@ -1,0 +1,572 @@
+/* ── Header — untouched ── */
+.programs-section { 
+  background: var(--light); 
+}
+
+.programs-section__header { text-align: center; margin-bottom: 48px; }
+.programs-section__header .section-label { justify-content: center; }
+.programs-section__header .section-label::before { display: none; }
+.programs-section__header .section-desc { margin: 0 auto; }
+
+/* ── Grid ── */
+.programs-grid-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+.program-head{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* ── Base Card ── */
+.program-card {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 20px;
+  padding: 25px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: box-shadow 0.3s, transform 0.3s;
+  animation: fadeUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+.program-card:hover {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.10);
+  transform: translateY(-4px);
+}
+
+/* ── Featured (first card — teal) ── */
+.program-card--featured {
+  background: #1e8b8c;
+  border-color: #1e8b8c;
+}
+
+.program-card--featured .program-card__code {
+  color: rgba(255, 255, 255, 0.60);
+}
+
+.program-card--featured .program-card__title {
+  color: #ffffff;
+}
+
+.program-card--featured .program-card__desc {
+  color: rgba(255, 255, 255, 0.70);
+}
+
+.program-card--featured .program-card__tag {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.program-card--featured .program-card__icon-wrap {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.program-card--featured .program-card__icon-wrap svg {
+  color: #ffffff;
+}
+
+.program-card--featured .program-card__arrow {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.program-card--featured .program-card__arrow svg {
+  color: #ffffff;
+}
+
+.program-card--featured:hover .program-card__arrow {
+  background: rgba(255, 255, 255, 0.30);
+}
+
+/* ── Proposed Card ── */
+.program-card--proposed {
+  border-style: dashed;
+  border-color: #d8d8d8;
+  background: rgba(0, 0, 0, 0.015);
+}
+
+.program-card__proposed-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #f0f0f0;
+  color: #888;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  text-transform: uppercase;
+}
+
+/* ── Icon ── */
+.program-card__icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: #f4f4f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.program-card__icon-wrap svg {
+  color: #1a1a1a;
+}
+
+/* ── Content ── */
+.program-card__code {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #999;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.program-card__title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+.program-card__desc {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.65;
+  flex: 1;
+}
+
+/* ── Footer ── */
+.program-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.program-card__tag {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: #999;
+  font-weight: 500;
+}
+
+.program-card__arrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #f4f4f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.program-card__arrow svg {
+  color: #1a1a1a;
+}
+
+.program-card:hover .program-card__arrow {
+  background: #1e8b8c;
+}
+
+.program-card:hover .program-card__arrow svg {
+  color: #ffffff;
+}
+/* ── Smooth featured transition ── */
+.program-card {
+  transition: background 0.4s ease, border-color 0.4s ease,
+              box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.program-card__title,
+.program-card__desc,
+.program-card__tag,
+.program-card__code {
+  transition: color 0.4s ease;
+}
+
+.program-card__icon-wrap,
+.program-card__arrow {
+  transition: background 0.4s ease;
+}
+
+.program-card__icon-wrap svg,
+.program-card__arrow svg {
+  transition: color 0.4s ease;
+}
+
+/* ── Program Number (Index) ── */
+.program-card__number {
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 700;
+  color: rgba(30, 139, 140, 0.12);
+  line-height: 1;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.program-card--featured .program-card__number {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+/* ── Tags (Pill Badges) ── */
+.program-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.program-card__tag-pill {
+  display: inline-block;
+  background: #f0f8f8;
+  color: #1e8b8c;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+}
+
+.program-card--featured .program-card__tag-pill {
+  background: rgba(255, 255, 255, 0.20);
+  color: #ffffff;
+}
+
+/* ── Fees Section ── */
+.program-card__fees {
+  background: #fafafa;
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin: 12px 0;
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+}
+
+.program-card__fee-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.program-card__fee-label {
+  color: #888;
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.program-card__fee-value {
+  color: #1e8b8c;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.program-card--featured .program-card__fees {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.program-card--featured .program-card__fee-label {
+  color: rgba(255, 255, 255, 0.70);
+}
+
+.program-card--featured .program-card__fee-value {
+  color: #ffffff;
+}
+
+/* ── Add-on Courses ── */
+.program-card__addons {
+  margin: 12px 0;
+}
+
+.program-card__addon-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #666;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.program-card__addon-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.program-card__addon-list li {
+  font-size: 12px;
+  color: #888;
+  padding-left: 12px;
+  position: relative;
+}
+
+.program-card__addon-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.program-card--featured .program-card__addon-title {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.program-card--featured .program-card__addon-list li {
+  color: rgba(255, 255, 255, 0.80);
+}
+
+/* ── Footer Items ── */
+.program-card__footer-items {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.program-card__footer-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: #999;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.program-card--featured .program-card__footer-item {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ── Redesigned card layout ── */
+.program-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.program-card__type-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #1e8b8c;
+}
+
+.program-card--featured .program-card__type-label {
+  color: rgba(255,255,255,0.75);
+}
+
+.program-card__addon-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.program-card__addon-pill {
+  display: inline-block;
+  border: 1.5px solid #ccc;
+  color: #444;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 14px;
+  border-radius: 8px;
+  background: transparent;
+}
+
+.program-card--featured .program-card__addon-pill {
+  border-color: rgba(255,255,255,0.4);
+  color: #fff;
+}
+
+.program-card__careers {
+  margin: 14px 0;
+  flex: 1;
+}
+
+.program-card__careers-title {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.program-card--featured .program-card__careers-title {
+  color: rgba(255,255,255,0.65);
+}
+
+.program-card__careers-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.program-card__careers-list li {
+  font-size: 13px;
+  color: #555;
+  padding-left: 16px;
+  position: relative;
+}
+
+.program-card__careers-list li::before {
+  content: '●';
+  position: absolute;
+  left: 0;
+  font-size: 7px;
+  color: #1e8b8c;
+  top: 4px;
+}
+
+.program-card--featured .program-card__careers-list li {
+  color: rgba(255,255,255,0.85);
+}
+
+.program-card--featured .program-card__careers-list li::before {
+  color: rgba(255,255,255,0.6);
+}
+
+.program-card__fee-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f0f8f8;
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin: 14px 0;
+}
+
+
+.program-card__fee-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex: 1;
+}
+
+.program-card__fee-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.program-card__fee-value small {
+  font-size: 11px;
+  font-weight: 500;
+  color: #888;
+}
+
+.program-card--featured .program-card__fee-box {
+  background: rgba(255,255,255,0.12);
+}
+
+.program-card--featured .program-card__fee-label {
+  color: rgba(255,255,255,0.65);
+}
+
+.program-card--featured .program-card__fee-value {
+  color: #fff;
+}
+
+.program-card--featured .program-card__fee-value small {
+  color: rgba(255,255,255,0.6);
+}
+
+.program-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid #eee;
+}
+
+.program-card--featured .program-card__footer {
+  border-top-color: rgba(255,255,255,0.15);
+}
+
+.program-card__seats {
+  font-size: 12px;
+  color: #888;
+}
+
+.program-card--featured .program-card__seats {
+  color: rgba(255,255,255,0.7);
+}
+
+.program-card__seats strong {
+  color: #000000;
+  font-weight: 700;
+}
+
+.program-card--featured .program-card__seats strong {
+  color: #ffffff;
+}
+
+.program-card__enquire-btn {
+  background: #1e8b8c;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.program-card__enquire-btn:hover {
+  background: #166f70;
+}
+
+.program-card--featured .program-card__enquire-btn {
+  background: #fff;
+  color: #1e8b8c;
+}
+
+/* ── Responsive ── */
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .programs-grid-section { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .programs-section { padding: 48px 0; }
+  .programs-section .container { padding: 0 16px; }
+  .programs-grid-section { grid-template-columns: 1fr; gap: 16px; }
+  .program-card { padding: 20px; }
+  .program-card__title { font-size: 17px; }
+  .program-card__footer { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .program-card__enquire-btn { width: 100%; text-align: center; display: block; }
+  .program-card__fee-box { flex-wrap: wrap; }
+}

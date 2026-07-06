@@ -1,0 +1,592 @@
+/* ─────────────────────────────────────────
+   WhyAashrayam.css
+   Design tokens aligned with Aashrayam homepage
+   Primary: #009191  |  Font: Cormorant + Outfit
+───────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap");
+
+/* ── TOKENS ── */
+.wa-page {
+  --primary: #009191;
+  --primary-dark: #008a8a;
+  --primary-xdark: #3a9987;
+  --primary-light: #e8f5f3;
+  --primary-mid: #4a9e8e;
+  --accent: #e8a838;
+  --text: #37373b;
+  --text-muted: #6b7b78;
+  --text-light: #a0b0ae;
+  --bg: #ffffff;
+  --bg-alt: #f7fafa;
+  --card-shadow: 0 2px 20px rgba(45, 125, 111, 0.09);
+  --card-shadow-hover: 0 8px 32px rgba(45, 125, 111, 0.18);
+  --radius: 14px;
+  --radius-sm: 8px;
+  font-family: "Outfit", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* ── SCROLL ANIMATION ── */
+.wa-animate {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: var(--delay, 0s);
+}
+.wa-animate.wa-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── SHARED LAYOUT ── */
+.wa-container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.wa-section {
+  padding: 88px 0;
+}
+
+.wa-section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.wa-tag {
+  display: inline-block;
+  font-family: "Outfit", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+.wa-tag-light {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.wa-section-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text);
+  margin: 8px 0 16px;
+}
+
+.wa-title-light {
+  color: #ffffff;
+}
+
+.wa-section-sub {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.wa-body-text {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.wa-header-light .wa-section-title,
+.wa-header-light .wa-section-sub {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* ── BANNER ── */
+.wa-banner {
+  position: relative;
+  background: #009191;
+  padding: 100px 0 80px;
+  overflow: hidden;
+}
+
+.wa-banner-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(0, 138, 138, 0.92) 0%,
+      rgba(0, 138, 138, 0.75) 35%,
+      rgba(0, 138, 138, 0.35) 60%,
+      rgba(0, 138, 138, 0.05) 85%,
+      transparent 100%
+    ),
+    url('https://res.cloudinary.com/dpqgpqdwk/image/upload/v1776413116/DSCF2006_j9emnq.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.wa-banner-shape {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 55px;
+  background: var(--bg);
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+
+.wa-banner-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1160px;
+  padding-top: 50px !important;
+  padding-bottom: 50px !important;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.wa-breadcrumb {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.wa-banner-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.6rem, 5vw, 3.5rem);
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.1;
+  margin: 0 0 20px;
+}
+
+.wa-banner-sub {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.72);
+  max-width: 520px;
+  line-height: 1.65;
+}
+
+/* ── PHILOSOPHY ── */
+.wa-philosophy {
+  background: var(--bg);
+}
+
+.wa-philosophy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: start;
+}
+
+.wa-philosophy-left {
+  padding-top: 8px;
+}
+
+.wa-founders-note {
+  display: flex;
+  gap: 16px;
+  margin-top: 28px;
+  padding: 20px 24px;
+  background: var(--primary-light);
+  border-radius: var(--radius-sm);
+}
+
+.wa-founders-line {
+  width: 3px;
+  background: var(--primary);
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.wa-founders-note p {
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+  color: var(--primary-dark);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.wa-philosophy-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.wa-vision-card,
+.wa-mission-card {
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--card-shadow);
+  border-top: 3px solid var(--primary);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.wa-vision-card:hover,
+.wa-mission-card:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-3px);
+}
+
+.wa-mission-card {
+  border-top-color: var(--accent);
+}
+
+.wa-card-icon {
+  font-size: 1.4rem;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.wa-vision-card h3,
+.wa-mission-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 10px;
+}
+
+.wa-vision-card p,
+.wa-mission-card p {
+  font-size: 0.97rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── PILLARS ── */
+.wa-pillars-section {
+  position: relative;
+  background: #008a8a;
+  padding: 88px 0;
+  overflow: hidden;
+}
+
+.wa-pillars-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 10% 80%, rgba(255,255,255,0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 20%, rgba(255,255,255,0.06) 0%, transparent 50%);
+}
+
+.wa-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.wa-pillar-card {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  backdrop-filter: blur(4px);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.wa-pillar-card:hover {
+  background: rgba(255, 255, 255, 0.11);
+  transform: translateY(-4px);
+}
+
+.wa-pillar-num {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.15);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.wa-pillar-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 12px;
+}
+
+.wa-pillar-body {
+  font-size: 0.93rem;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── MANAGEMENT ── */
+.wa-management-section {
+  background: var(--bg);
+}
+
+.wa-mgmt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.wa-mgmt-card {
+  background: var(--bg);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(0, 145, 145, 0.07);
+  padding: 28px 24px;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.wa-mgmt-card:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-4px);
+}
+
+.wa-mgmt-img-wrap {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 18px;
+  border: 3px solid var(--primary-light);
+}
+
+.wa-mgmt-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.wa-mgmt-body {
+  padding: 0;
+}
+
+.wa-mgmt-role {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.wa-mgmt-name {
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 4px;
+}
+
+.wa-mgmt-qual {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  margin: 0 0 12px;
+}
+
+.wa-mgmt-bio {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.68;
+  margin: 0;
+}
+
+/* ── LEARNING ENVIRONMENT ── */
+.wa-env-section {
+  background: var(--bg-alt);
+}
+
+.wa-env-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.wa-env-card {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  height: 260px;
+  box-shadow: var(--card-shadow);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.wa-env-card:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-4px);
+}
+
+.wa-env-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.wa-env-card:hover .wa-env-img {
+  transform: scale(1.04);
+}
+
+.wa-env-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 60, 60, 0.88) 0%,
+    rgba(0, 60, 60, 0.45) 55%,
+    rgba(0, 60, 60, 0.1) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px 22px;
+}
+
+.wa-env-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 8px;
+}
+
+.wa-env-desc {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── CTA ── */
+.wa-cta-section {
+  background: var(--primary-light);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.wa-cta-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 14px;
+}
+
+.wa-cta-sub {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  margin: 0 0 36px;
+  line-height: 1.65;
+}
+
+.wa-cta-btns {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.wa-btn-primary {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 14px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.22s ease, transform 0.22s ease;
+}
+
+.wa-btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.wa-btn-secondary {
+  display: inline-block;
+  background: transparent;
+  color: var(--primary);
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 14px 32px;
+  border-radius: 8px;
+  border: 1.5px solid var(--primary);
+  text-decoration: none;
+  transition: background 0.22s ease, color 0.22s ease, transform 0.22s ease;
+}
+
+.wa-btn-secondary:hover {
+  background: var(--primary);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .wa-philosophy-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .wa-pillars-grid,
+  .wa-env-grid,
+  .wa-mgmt-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .wa-section {
+    padding: 60px 0;
+  }
+
+  .wa-container {
+    padding: 0 20px;
+  }
+
+  .wa-pillars-grid,
+  .wa-env-grid,
+  .wa-mgmt-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wa-env-card {
+    height: 220px;
+  }
+
+  .wa-banner {
+    padding: 72px 0 64px;
+  }
+
+  .wa-banner-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .wa-banner { padding: 72px 0 60px; }
+  .wa-container { padding: 0 16px; }
+  .wa-philosophy-grid { grid-template-columns: 1fr; }
+  .wa-banner-title { font-size: 2rem; }
+}

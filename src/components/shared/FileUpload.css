@@ -1,0 +1,137 @@
+/* FileUpload Component */
+.file-upload {
+  width: 100%;
+}
+
+.file-upload__dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 28px 20px;
+  border: 2px dashed var(--teal-muted);
+  border-radius: 10px;
+  background: var(--light);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.file-upload__dropzone:hover,
+.file-upload__dropzone--drag {
+  border-color: var(--teal);
+  background: rgba(0, 145, 145, 0.04);
+}
+
+.file-upload__dropzone--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.file-upload__icon {
+  color: var(--teal);
+  opacity: 0.7;
+}
+
+.file-upload__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.file-upload__primary {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--mid);
+}
+
+.file-upload__secondary {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.file-upload__progress-bar {
+  width: 200px;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 6px auto 0;
+}
+
+.file-upload__progress-fill {
+  height: 100%;
+  background: var(--teal);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.file-upload__preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--teal-pale);
+  border: 1px solid var(--teal-muted);
+  border-radius: 10px;
+}
+
+.file-upload__preview-icon {
+  color: var(--teal);
+  flex-shrink: 0;
+}
+
+.file-upload__preview-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.file-upload__preview-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file-upload__preview-size {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.file-upload__preview-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.file-upload__view-btn,
+.file-upload__remove-btn {
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.file-upload__view-btn {
+  background: var(--teal);
+  color: white;
+}
+
+.file-upload__remove-btn {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.file-upload__error {
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: #dc2626;
+}
