@@ -1,0 +1,150 @@
+.evl-page { background: #fff; }
+
+/* Banner */
+
+.evl-banner-bg{
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(0, 138, 138, 0.92) 0%,
+      rgba(0, 138, 138, 0.75) 35%,
+      rgba(0, 138, 138, 0.35) 60%,
+      rgba(0, 138, 138, 0.05) 85%,
+      transparent 100%
+    ),
+    url('../../images/DSC00844.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.evl-banner {
+  position: relative;
+  background: var(--teal);
+  padding: 90px 0 70px;
+  overflow: hidden;
+}
+.evl-banner-shape {
+  position: absolute; bottom: -2px; left: 0; right: 0;
+  height: 48px; background: #fff;
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+.evl-container { max-width: 1200px; margin: 0 auto; padding: 50px 24px; }
+.evl-banner .evl-container { position: relative; z-index: 1; }
+.evl-breadcrumb { font-size: 0.8rem; color: rgba(255,255,255,0.5); display: block; margin-bottom: 14px; }
+.evl-banner-title {
+  font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 700; color: #fff; margin: 0 0 14px; line-height: 1.1;
+}
+.evl-banner-sub { font-size: 1rem; color: rgba(255,255,255,0.72); max-width: 480px; line-height: 1.6; }
+
+/* Section */
+.evl-section { padding: 60px 0 80px; background: var(--light); }
+
+/* Filters */
+.evl-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 36px; }
+.evl-filter-btn {
+  padding: 7px 18px; border-radius: 50px; border: 1.5px solid var(--border);
+  background: white; color: var(--muted); font-size: 12px; font-weight: 600;
+  cursor: pointer; transition: all 0.2s; font-family: var(--font-body);
+}
+.evl-filter-btn:hover { border-color: var(--teal); color: var(--teal); }
+.evl-filter-btn--active { background: var(--teal); border-color: var(--teal); color: white!important; }
+
+/* Grid — same 3-col as home events */
+.evl-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+
+/* Card */
+.evl-card {
+  background: white; border-radius: var(--radius); border: 1.5px solid var(--border);
+  overflow: hidden; cursor: pointer; transition: all 0.3s ease;
+  animation: evlUp 0.5s ease forwards; opacity: 0;
+  display: flex; flex-direction: column;
+}
+.evl-card:hover { border-color: var(--teal-muted); box-shadow: var(--shadow); transform: translateY(-4px); }
+
+.evl-card__img-wrap { height: 190px; overflow: hidden; position: relative; }
+.evl-card__img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.evl-card:hover .evl-card__img { transform: scale(1.04); }
+
+.evl-card__no-img {
+  height: 190px; background: var(--teal-pale);
+  display: flex; align-items: center; justify-content: center; position: relative;
+}
+
+.evl-card__date-badge {
+  position: absolute; top: 14px; left: 14px;
+  background: white; border-radius: 10px; padding: 6px 10px;
+  text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.12); min-width: 48px;
+}
+.evl-card__date-badge--center { position: static; box-shadow: var(--shadow); }
+.evl-card__day { font-family: var(--font-display); font-size: 22px; font-weight: 800; color: var(--teal); line-height: 1; }
+.evl-card__month { font-size: 10px; font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: 0.5px; }
+
+.evl-card__body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+.evl-card__cat {
+  display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.5px; padding: 3px 10px; border-radius: 50px;
+  background: var(--teal-pale); color: var(--teal); margin-bottom: 10px;
+}
+.evl-card__title {
+  font-family: var(--font-display); font-size: 17px; font-weight: 700;
+  color: var(--charcoal); margin-bottom: 8px; line-height: 1.35;
+}
+.evl-card__desc { font-size: 13px; color: var(--muted); line-height: 1.6; flex: 1; margin-bottom: 14px; }
+.evl-card__meta {
+  display: flex; gap: 14px; font-size: 12px; color: var(--muted);
+  flex-wrap: wrap; padding-top: 12px; border-top: 1px solid var(--border);
+}
+.evl-card__meta span { display: flex; align-items: center; gap: 5px; }
+
+.evl-empty {
+  text-align: center; padding: 60px; color: var(--muted); font-size: 15px;
+  background: white; border-radius: var(--radius); border: 1.5px dashed var(--border);
+}
+
+/* Modal */
+.evl-overlay {
+  position: fixed; inset: 0; background: rgba(22,33,62,0.55);
+  z-index: 1000; display: flex; align-items: center; justify-content: center;
+  padding: 20px; backdrop-filter: blur(3px);
+  animation: evlFade 0.2s ease;
+}
+.evl-modal {
+  background: white; border-radius: var(--radius-lg); max-width: 620px;
+  width: 100%; max-height: 88vh; overflow-y: auto; position: relative;
+  box-shadow: var(--shadow-lg); animation: evlUp 0.25s ease;
+}
+.evl-modal__close {
+  position: absolute; top: 14px; right: 14px; background: rgba(0,0,0,0.07);
+  border: none; border-radius: 50%; width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; z-index: 2; color: var(--charcoal); transition: background 0.2s;
+}
+.evl-modal__close:hover { background: rgba(0,0,0,0.14); }
+.evl-modal__img { width: 100%; height: 230px; overflow: hidden; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+.evl-modal__img img { width: 100%; height: 100%; object-fit: cover; }
+.evl-modal__body { padding: 28px 30px 32px; }
+.evl-modal__title {
+  font-family: var(--font-display); font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  font-weight: 700; color: var(--charcoal); margin: 12px 0 14px; line-height: 1.2;
+}
+.evl-modal__meta {
+  display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: var(--muted);
+  margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid var(--border);
+}
+.evl-modal__meta span { display: flex; align-items: center; gap: 6px; }
+.evl-modal__desc { font-size: 15px; color: var(--mid); line-height: 1.78; }
+
+@keyframes evlUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes evlFade { from { opacity: 0; } to { opacity: 1; } }
+
+@media (max-width: 900px) { .evl-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 580px) {
+  .evl-grid { grid-template-columns: 1fr; }
+  .evl-modal__body { padding: 20px; }
+}
